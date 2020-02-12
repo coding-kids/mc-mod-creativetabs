@@ -15,16 +15,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Mod.EventBusSubscriber
 public interface CommonProxy {
     @SubscribeEvent
-    public static void registerRenders(ModelRegistryEvent event) {
-        registerRender(CreativeTabs.mySword);
-    }
-
-    public static void registerRender(Item item) {
-        ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
-    }
-
-    @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
+        ModelLoader.setCustomModelResourceLocation(CreativeTabs.mySword, 0, new ModelResourceLocation(CreativeTabs.mySword.getRegistryName(), "inventory"));
         event.getRegistry().registerAll(CreativeTabs.mySword);
     }
 }
